@@ -1,7 +1,16 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import ToastNotification from "@/components/notifications/Toasts";
 ---
 
 <Layout title="Bienvenido">
-  <h2 class="text-FontLight">Hello World!</h2>
+  <ToastNotification client:only="react" />
+  <button id="button">Click Me!</button>
 </Layout>
+
+<script>
+  import { toast } from "sonner";
+  document.getElementById("button")?.addEventListener("click", () => {
+    toast.success("Hello World!");
+  });
+</script>
